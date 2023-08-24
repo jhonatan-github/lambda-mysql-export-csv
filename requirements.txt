@@ -1,0 +1,5 @@
+requests
+boto3
+pymysql
+pandas
+mysql-connector-python==8.0.5

@@ -1,0 +1,40 @@
+Lambda para Backup MySQL e Upload para o S3
+Este é um script em Python para uma função AWS Lambda que executa backup de dados de um banco de dados MySQL e carrega os resultados para um bucket no Amazon S3.
+
+Pré-requisitos
+Antes de utilizar esta função Lambda, certifique-se de que você tenha:
+
+Uma conta na AWS com permissões para criar funções Lambda, acessar o AWS Secrets Manager e o Amazon S3.
+Configurado o AWS Secrets Manager com as credenciais de acesso ao banco de dados MySQL.
+Configurado um bucket no Amazon S3 para armazenar os arquivos de backup.
+
+Configuração
+Variáveis de Ambiente:
+Certifique-se de configurar as seguintes variáveis de ambiente para a função Lambda:
+
+BUCKET_NAME: O nome do bucket no Amazon S3 onde os arquivos de backup serão carregados.
+AWS_SECRETNAME: O nome do segredo no AWS Secrets Manager que contém as credenciais de acesso ao banco de dados MySQL.
+CSV_FILENAME: O nome do arquivo CSV que será criado para armazenar os dados exportados.
+
+Função Lambda:
+Configure uma nova função AWS Lambda.
+
+Permissões:
+Certifique-se de que a função Lambda tenha as seguintes permissões:
+
+Permissão para acessar o AWS Secrets Manager para recuperar as credenciais de acesso ao banco de dados.
+Permissão para acessar o banco de dados MySQL.
+Permissão para acessar o Amazon S3 para carregar os arquivos de backup.
+
+Uso
+Quando a função Lambda for executada, ela realizará as seguintes etapas:
+
+Conexão ao AWS Secrets Manager para recuperar as credenciais de acesso ao banco de dados.
+Conexão ao banco de dados MySQL utilizando as credenciais obtidas.
+Execução de uma consulta SQL para obter os dados desejados.
+Exportação dos dados obtidos para um arquivo CSV temporário.
+Conexão ao Amazon S3 para fazer o upload do arquivo CSV para o bucket especificado.
+
+Considerações Finais
+Este script demonstra como criar um processo automatizado para backup e armazenamento de dados de um banco de dados MySQL no Amazon S3. Certifique-se de configurar corretamente as variáveis de ambiente e permissões necessárias para o funcionamento adequado da função Lambda.
+
